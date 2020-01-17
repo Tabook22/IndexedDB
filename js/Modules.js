@@ -79,9 +79,20 @@ const Sortobj=sortobj =>{
 }
 
 
+//create dynamic element
+
+//three parameter will be specified, tagname (the element we want to create), appendTo (the element which we append to), the fn is high order function
+const createEle=(tagname,appendTo,fn)=>{
+    const element=document.createElement(tagname);
+    //now the element is created, we want to append the created element, if the appendto element is specified
+    if(appendTo) appendTo.appendChild(element);
+    //here if the function "fn" then we can access the element, that means we must first call the function in order to access the elemen
+    if(fn) fn(element);
+}
 
 export default productdb;
 export {
     bulkcreate,
-    getData
+    getData,
+    createEle
 };

@@ -1,5 +1,5 @@
 import productdb,{ 
-    bulkcreate, getData
+    bulkcreate, getData,createEle
 } from './Modules.js';
 
 
@@ -42,3 +42,19 @@ console.log(flag);
     });
 }
 
+//create event read
+btnread.onclick=table;
+
+function table(){
+    const tbody=document.getElementById("tbody");
+
+    //the first element is the element which i want to crate which is "td", then i have to specify the elelment to append to which is tbody, then to access this tbody i have to specify a function
+    createEle("td",tbody,(td)=>{
+        console.log(td);
+    })
+
+    //let td=document.createElement("td");
+    //tbody.appendChild(td);
+
+
+}

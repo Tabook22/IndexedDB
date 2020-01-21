@@ -1,0 +1,13 @@
+.container{
+    width:500px;
+    height:100%;
+    margin-left:auto;
+    margin-right:auto;
+    background-color:#f1f1f1;
+    padding:20px;
+    
+}
+
+.degree-section{
+    cursor:pointer;
+}

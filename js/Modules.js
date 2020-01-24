@@ -10,7 +10,7 @@ db.open();
 //here we returned the db so we can access it later on, because we are here using what is called pure function
 // a pure JavaScript funcitons takes some imputs and returns output, we have our inputs "dbname, table", and we now returning our "db"
 return db;
-}
+};
 
 //insert function
 const bulkcreate=(dbtable,data)=>{
@@ -27,8 +27,20 @@ const bulkcreate=(dbtable,data)=>{
 
 }
 
+
+//create dynamic element
+
+//three parameter will be specified, tagname (the element we want to create), appendTo (the element which we append to), the fn is high order function
+const createEle=(tagname,appendTo,fn)=>{
+    const element=document.createElement(tagname);
+    //now the element is created, we want to append the created element, if the appendto element is specified
+    if(appendTo) appendTo.appendChild(element);
+    //here if the function "fn" then we can access the element, that means we must first call the function in order to access the elemen
+    if(fn) fn(element);
+}
 //check textbox validation
 //create a function called empty and specify a prameter called object
+
 const empty = object =>{
     let flag=false;
     
@@ -42,7 +54,7 @@ const empty = object =>{
         }
     }
     return flag;
-}
+};
 
 
 
@@ -56,17 +68,17 @@ const getData=(dbtable, fn)=>{
         if(count){
             dbtable.each(table =>{
                obj= Sortobj(table);
-               fn(obj, index++)
-            })
+               fn(obj, index++);
+            });
         }else{
             fn(0);
         }
-    })
-}
+    });
+};
 
 //sort object
 //here we are creating a funciton to sort the data in the way we want it to be for example we want to be id, name, seller and price
-const Sortobj=sortobj =>{
+const SortObj=sortobj =>{
     let obj={};
     obj={
         id:sortobj.id,
@@ -74,25 +86,15 @@ const Sortobj=sortobj =>{
         seller: sortobj.seller,
         price: sortobj.price
 
-    }
+    };
     return obj;
 }
 
-
-//create dynamic element
-
-//three parameter will be specified, tagname (the element we want to create), appendTo (the element which we append to), the fn is high order function
-const createEle=(tagname,appendTo,fn)=>{
-    const element=document.createElement(tagname);
-    //now the element is created, we want to append the created element, if the appendto element is specified
-    if(appendTo) appendTo.appendChild(element);
-    //here if the function "fn" then we can access the element, that means we must first call the function in order to access the elemen
-    if(fn) fn(element);
-}
 
 export default productdb;
 export {
     bulkcreate,
     getData,
-    createEle
+    createEle,
+    SortObj
 };

@@ -22,3 +22,23 @@ table .btndelete{
     color:tomato;
     cursor:pointer;
 }
+
+/* message */
+.insertmsg,
+.updatemsg,
+.deletemsg{
+    position:absolute;
+    top:-40px;
+}
+
+.movedown{
+    animation: slideup 3.4s ease-in-out;
+}
+@keyframes slideup{
+    50%{
+        top:0;
+    }
+    100%{
+        top:-40px;
+    }
+}
